@@ -1,0 +1,20 @@
+[Unit]
+Description=GPIO 2 MQTT for Home Assistant
+After=network.target
+#StartLimitInterval=200
+#StartLimitBurst=5
+
+[Service]
+#ExecReload=/bin/kill -s HUP $MAINPID
+#ExecStop=/bin/kill -s QUIT $MAINPID
+#Restart=always
+#RestartSec=30
+#
+ExecStart=/home/alarm/Scripts/Home_Automation/sensors.py
+Type=idle
+Restart=on-failure
+User=root
+Group=root
+
+[Install]
+WantedBy=multi-user.target
